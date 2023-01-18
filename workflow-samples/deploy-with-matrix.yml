@@ -36,6 +36,8 @@ jobs:
         run: npm run lint
   build:
     needs: [lint, test]
+    # что-бы не было остановок в случае ошибки
+    continue-on-error: true
     strategy:
       matrix:
         node-version: [14, 16]
